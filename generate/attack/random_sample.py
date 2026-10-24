@@ -3,9 +3,9 @@
 Writes data/attack/random_sample.jsonl (Section 4, the unbiased random sample, and Table 1's paraphrase
 control): each hack the target monitor (gpt-5.4-nano, full scope) catches gets an obfuscated and a
 paraphrased rewrite, both scored by nano and the held-out sonnet, beside the original pool scores.
-Run `python -m generate.attack.random_sample --batch` (roughly $30; OPENROUTER_API_KEY and the Terminal
-Wrench clone). `--selfcheck` tests the rewrite rail for $0; `--dry-run N` rewrites N hacks without
-scoring (a few cents) and saves the before and after reasoning to runs/attack/ for a coherence audit.
+Run `python -m generate.attack.random_sample --batch` (OPENROUTER_API_KEY and the Terminal
+Wrench clone). `--selfcheck` tests the rewrite rail without API calls; `--dry-run N` rewrites N hacks
+without scoring and saves the before and after reasoning to runs/attack/ for a coherence audit.
 """
 import argparse
 import asyncio
@@ -87,7 +87,7 @@ async def dry_run(n):
 
 
 def selfcheck():
-    """$0, no API. On the first three clean hacks: an identity rewrite and a real narration edit pass the
+    """No API calls. On the first three clean hacks: an identity rewrite and a real narration edit pass the
     rail and re-render with the task text, and a tampered tool call is caught."""
     assert (TW / "index" / "trajectories.json").exists(), f"--selfcheck needs the Terminal Wrench clone at {TW}; set TW_REPO"
     hacks = tw.clean_hacks()[:3]
@@ -116,14 +116,14 @@ def selfcheck():
             raise SystemExit(f"{tw.sid(s)}: the rail missed a tampered tool call")
         print(f"  ok {tw.sid(s)}: {len(steps)} agent messages | identity and edit pass, tamper caught | "
               f"rendered {len(rendered)} chars")
-    print(f"selfcheck passed: {len(hacks)} trajectories, rail and re-render verified, $0 spent")
+    print(f"selfcheck passed: {len(hacks)} trajectories, rail and re-render verified")
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--selfcheck", action="store_true", help="$0: test the rewrite rail and rendering, no API")
-    ap.add_argument("--dry-run", type=int, default=0, metavar="N", help="paid: rewrite N caught hacks, no scoring")
-    ap.add_argument("--batch", action="store_true", help="paid: rewrite and score --n caught hacks")
+    ap.add_argument("--selfcheck", action="store_true", help="test the rewrite rail and rendering; no API calls")
+    ap.add_argument("--dry-run", type=int, default=0, metavar="N", help="rewrite N caught hacks, no scoring")
+    ap.add_argument("--batch", action="store_true", help="rewrite and score --n caught hacks")
     ap.add_argument("--n", type=int, default=150)
     args = ap.parse_args()
     if args.selfcheck:

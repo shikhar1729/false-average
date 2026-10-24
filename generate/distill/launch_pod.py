@@ -4,8 +4,7 @@ Creates a RunPod pod with a 2-hour terminate-after backstop, uploads train_on_po
 generate.distill.prepare, runs it, and copies sft_gen.json back to runs/distill/ (with the pod id and
 logs). The pod is always deleted at the end, even on failure. generate.distill.lora then scores it.
 Run: python -m generate.distill.launch_pod [--model Qwen/Qwen3-8B] [--epochs 3].
-Needs runpodctl and RUNPOD_API_KEY (HF_TOKEN optional) in the environment. Rough cost: about one
-A100-80GB hour, a few dollars.
+Needs runpodctl and RUNPOD_API_KEY (HF_TOKEN optional) in the environment.
 """
 import argparse
 import datetime

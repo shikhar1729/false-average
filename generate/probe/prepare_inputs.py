@@ -5,7 +5,6 @@ reasoning-dependent hacks it renders the original trajectory and one fresh gpt-5
 monitor reads them (dataset rubric, full scope), plus 150 legit solves drawn with seed 1. pod_8b.py,
 verdict_32b.py, prepare_inputs_32b.py, sonnet_verdict_rescore.py and generate/distill read it. Resumable.
 Run: python -m generate.probe.prepare_inputs [--n 150]. Needs OPENROUTER_API_KEY and the TW clone.
-Rough cost: about $6 (150 obfuscator calls).
 """
 import argparse
 import asyncio

@@ -1,6 +1,6 @@
 # reproduce/ needs only numpy.
 numpy
-# generate/ (paid runs) also needs these; GPU pods install torch, transformers, peft and datasets themselves.
+# generate/ also needs these; GPU pods install torch, transformers, peft and datasets themselves.
 httpx
 openai
 python-dotenv

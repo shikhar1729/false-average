@@ -4,7 +4,7 @@ Writes data/frozen_pool/<monitor>_<scope>.jsonl (Gemini-3.1-pro actor) and data/
 (Claude-Opus-4.6 actor): one suspicion score per trajectory under the dataset's own rubric, for
 Section 3, Tables 1 and 3, and Appendix B. Example: `python -m generate.frozen_pool.score_pool
 --model openai/gpt-5.4-nano --scope full --clean-only`; `--help` lists the exact runs behind data/.
-Needs OPENROUTER_API_KEY and the Terminal Wrench clone (TW_REPO). Roughly $2 (nano) to $50 (sonnet) per pool.
+Needs OPENROUTER_API_KEY and the Terminal Wrench clone (TW_REPO).
 """
 import argparse
 import asyncio

@@ -20,16 +20,16 @@ def runpodctl(*args, timeout=180):
     return subprocess.run(["runpodctl", *args], env=env, capture_output=True, text=True, timeout=timeout)
 
 
-def _id_and_price(stdout):
+def _pod_id(stdout):
     d = json.loads(stdout)
     d = d[0] if isinstance(d, list) else d
     d = d.get("pod") or d
-    return d.get("id"), d.get("costPerHr")
+    return d.get("id")
 
 
 def create(name, gpus, disk_gb, hours):
     """Try each GPU type in order. The pod deletes itself after `hours` even if this process dies.
-    Returns (pod_id, gpu, usd_per_hour or None); exits when no GPU type is available."""
+    Returns (pod_id, gpu); exits when no GPU type is available."""
     term_after = (datetime.datetime.now(datetime.timezone.utc)
                   + datetime.timedelta(hours=hours)).strftime("%Y-%m-%dT%H:%M:%SZ")
     for gpu in gpus:
@@ -37,14 +37,14 @@ def create(name, gpus, disk_gb, hours):
         r = runpodctl("pod", "create", "--name", name, "--gpu-id", gpu, "--template-id", "runpod-torch-v240",
                       "--container-disk-in-gb", str(disk_gb), "--terminate-after", term_after, "-o", "json")
         try:
-            pid, price = _id_and_price(r.stdout)
+            pid = _pod_id(r.stdout)
         except Exception:
-            pid, price = None, None
+            pid = None
         if pid:
             print(f"created on {gpu} -> {pid}", flush=True)
             RUNS.mkdir(parents=True, exist_ok=True)
             (RUNS / f"pod_id_{name}.txt").write_text(pid)   # for manual cleanup if this process is killed
-            return pid, gpu, price
+            return pid, gpu
         print("  unavailable:", (r.stdout + r.stderr)[-160:].replace("\n", " "), flush=True)
     sys.exit("no GPU type available")
 

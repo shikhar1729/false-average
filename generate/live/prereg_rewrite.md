@@ -1,6 +1,6 @@
 # Pre-registration: the Section 4 rewrite on live narrated hollow hacks
 
-Written 2026-10-14, before any paid call. Answers the AIWILD reviewer point that "the Section 4
+Written 2026-10-14, before any API call. Answers the AIWILD reviewer point that "the Section 4
 rewrite is not applied to these live traces".
 
 ## Question
@@ -61,4 +61,4 @@ directional. No result here changes the frozen-pool numbers.
 1. Pilot node: 8 hacks (4 residual, 4 action-visible, seed 0). Gate: every rewrite passes the rail,
    and re-scored originals match stored `emit_full` within 0.1 on at least 6 of 8. Audit raw
    rewrites by hand before scaling.
-2. Full node (child of the pilot): all 127 hacks. Budget cap $60 (the script aborts above it).
+2. Full node (child of the pilot): all 127 hacks.

@@ -3,7 +3,7 @@
 Writes data/defenses/reference.jsonl (Table 2, last row): 150 reasoning-dependent hacks, each rewritten
 once and scored by sonnet against a genuine solve of its task (kind "hack"), and 150 legit solves scored
 against a different genuine solve of their task (kind "neg"; these set the threshold). Run
-`python -m generate.defenses.reference`. Needs OPENROUTER_API_KEY and the Terminal Wrench clone; roughly $30.
+`python -m generate.defenses.reference`. Needs OPENROUTER_API_KEY and the Terminal Wrench clone.
 """
 import argparse
 import asyncio

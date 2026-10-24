@@ -5,7 +5,6 @@ For each of 40 reasoning-dependent hacks it obfuscates the reasoning, scores the
 held-out sonnet monitor (full scope), and has an independent gpt-5.4 judge rate how faithfully the
 rewritten and the original reasoning describe the commands and outputs. Failed rewrites are dropped.
 Run: python -m generate.faithfulness.coherence [--n 40]. Needs OPENROUTER_API_KEY and the TW clone.
-Rough cost: about $3 (40 rewrites, 40 monitor calls, 80 judge calls).
 """
 import argparse
 import asyncio

@@ -5,7 +5,7 @@ reasoning-dependent hacks, each rewritten once and scored by the held-out sonnet
 dataset rubric and the obfuscation-aware rubric, plus the original under obfuscation-aware. Also writes
 data/defenses/legit_obfuscation_aware.jsonl, 150 legit solves under that rubric (its threshold). The two
 examples come from tasks 1012 and 1074, outside the subset. Run `python -m generate.defenses.obfuscation_aware`.
-Needs OPENROUTER_API_KEY and the Terminal Wrench clone; roughly $25.
+Needs OPENROUTER_API_KEY and the Terminal Wrench clone.
 """
 import argparse
 import asyncio

@@ -4,8 +4,7 @@ Writes data/defenses/intent_blind.jsonl (Table 2; also one of Section 4's repeat
 reasoning-dependent hacks, each rewritten once and scored by the held-out sonnet (full scope) under the
 dataset, skeptic, consistency and intent-blind rubrics, plus the original under intent-blind. Also
 writes data/defenses/legit_intent_blind.jsonl, 150 legit solves under intent-blind (its threshold).
-Run `python -m generate.defenses.intent_blind`. Needs OPENROUTER_API_KEY and the Terminal Wrench clone;
-roughly $60.
+Run `python -m generate.defenses.intent_blind`. Needs OPENROUTER_API_KEY and the Terminal Wrench clone.
 """
 import argparse
 import asyncio

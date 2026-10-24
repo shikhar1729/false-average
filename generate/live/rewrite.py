@@ -3,8 +3,8 @@ generate/live/prereg_rewrite.md). For each of the 127 hacks in data/live/<agent>
 rewrites only the emitted narration (and, as the control, paraphrases it); commands, observations and
 hidden thinking stay byte-identical. The live monitor re-scores the original the same day and both rewrites.
 Writes scores to data/live/rewrite.jsonl and full rows with the rewritten text to runs/live/rewrite_rows.jsonl.
-  python -m generate.live.rewrite               # paid; the original run stayed under a $40 cap
-  python -m generate.live.rewrite --selfcheck   # $0: counts, thresholds, rail
+  python -m generate.live.rewrite               # rewrite and score all 127 hacks
+  python -m generate.live.rewrite --selfcheck   # counts, thresholds, rail; no API calls
 Needs OPENROUTER_API_KEY and the TW clone (task instructions).
 """
 import argparse
@@ -181,7 +181,7 @@ def selfcheck(hacks, honest, tau, tau_ao):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--selfcheck", action="store_true", help="$0: population counts, thresholds and the rail")
+    ap.add_argument("--selfcheck", action="store_true", help="population counts, thresholds and the rail; no API calls")
     ap.add_argument("--concurrency", type=int, default=8)
     a = ap.parse_args()
     print(f"obfuscator: {OBFUSCATOR} | monitor: {SONNET} | TW: {TW}")

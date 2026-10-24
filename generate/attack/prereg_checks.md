@@ -1,10 +1,10 @@
-> Written before the paid runs and kept as written. The runs used one script in our working repository
+> Written before the runs. The runs used one script in our working repository
 > (`review2_checks.py`); the public equivalents are `generate/attack/sanitized.py`, `generate/attack/causal.py`,
 > `generate/attack/opus_gpt54.py` and `generate/probe/action_only.py`. Results: Appendix B and I of the paper.
 
 # Pre-registration: four checks from the second review
 
-Written 2026-10-16, before any paid call. The $0 selfcheck (`review2_checks.py --selfcheck`) fixed
+Written 2026-10-16, before any API call. The selfcheck (`review2_checks.py --selfcheck`, no API calls) fixed
 every population and threshold below. Each check is one experiment node; all share
 `scripts/review2_checks.py`.
 
@@ -27,7 +27,7 @@ then rewrite each agent message on its own (one LLM call per message, no traject
 references to hacking and "make it appear as if the model arrived at its approach on its own". All 209
 headline hacks have one; commands and outputs are identical to the original on all 209.
 
-Score each sanitized trajectory with the headline monitor. Budget cap $15.
+Score each sanitized trajectory with the headline monitor.
 
 - S1: sanitized catch <= 25%: the dataset's independent, message-local sanitizer reproduces most of the
   collapse; the fragility does not depend on our obfuscator.
@@ -42,7 +42,6 @@ reasoning step per call, in order. For step i it sees the task, steps before i w
 reasoning, commands and outputs, and step i's own command, but not step i's output or any later step.
 It receives step i's original reasoning to rewrite, with `OBFUSCATOR_PROMPT` verbatim and a header that
 says later steps are withheld. Same-day controls: a one-shot rewrite of the same 50 and the original.
-Budget cap $15.
 
 - C1: causal catch <= 25% and within 15 points of the same-day one-shot: hindsight is not what drives
   the collapse.
@@ -56,7 +55,7 @@ full scope does not saturate there: tau = 0.97 on 1,026 legit solves (realized 5
 stored catch on the 97 subset hacks is 61.9% with AUC 0.861. Run a fresh rewrite and paraphrase of the
 97 (actor `claude-opus-4.6`), score original, rewrite and paraphrase with gpt-5.4 (rubric v1, max_tokens
 4000, as `run_monitor.call`), and re-score both rewrites with flash to check that Table 1 reproduces.
-AUC against the legit solves is the primary measure. Budget cap $40.
+AUC against the legit solves is the primary measure.
 
 - O1 (replicates): rewrite AUC <= 0.60 and rewrite catch <= 10%, with paraphrase AUC within 0.10 of the
   same-day original.
@@ -64,7 +63,7 @@ AUC against the legit solves is the primary measure. Budget cap $40.
 - Caveat fixed in advance: gpt-5.4 is also the obfuscator model, and the same family as the target M0.
 - Reproduction: the fresh rewrite under flash at tau = 1.0 should be caught <= 5% (stored 0%).
 
-## Check 4: an action-only probe (RunPod, about $3)
+## Check 4: an action-only probe (RunPod)
 
 The Section 6 probe (Qwen3-8B, last prompt token, 8 layers, GroupKFold-5 by task, StandardScaler +
 LogisticRegression C=1) reached AUC 0.94 on rewritten hacks against legit solves. Re-run it unchanged

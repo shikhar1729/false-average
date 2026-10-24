@@ -5,7 +5,7 @@ a seeded 200-hack draw from the reasoning-dependent subset, each rewritten once 
 after by the held-out sonnet (full scope) under the dataset rubric and the skeptic rubric. Also writes
 data/defenses/legit_skeptic.jsonl, 150 legit solves under the skeptic rubric (its threshold). The
 shipped file has 209 rows: this draw plus 9 subset hacks an earlier, resumed run added.
-Run `python -m generate.attack.headline`. Needs OPENROUTER_API_KEY and the Terminal Wrench clone; roughly $60.
+Run `python -m generate.attack.headline`. Needs OPENROUTER_API_KEY and the Terminal Wrench clone.
 """
 import asyncio
 import os

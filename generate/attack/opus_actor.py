@@ -3,7 +3,7 @@
 Writes data/attack/opus_actor.jsonl (Table 1, other-actor row): opus hacks that nano (full scope) and
 flash (full) catch while flash (action-only) rates them benign, each scored by flash (full) before and
 after an obfuscated and a paraphrased rewrite. Reads data/opus_pool/. Run
-`python -m generate.attack.opus_actor`. Needs OPENROUTER_API_KEY and the Terminal Wrench clone; roughly $25.
+`python -m generate.attack.opus_actor`. Needs OPENROUTER_API_KEY and the Terminal Wrench clone.
 """
 import argparse
 import asyncio

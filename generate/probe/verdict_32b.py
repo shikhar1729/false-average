@@ -3,7 +3,7 @@
 Writes data/probe/verdict_32b.jsonl (Section 6: the 32B surrogate's verdict AUC; prepare_inputs_32b.py and
 analyze_32b.py also read it). Qwen3-32B on OpenRouter, thinking off (/no_think, as in the probe run), scores
 the 150 obfuscated hacks and 150 legit solves of runs/probe/internals_inputs_obf.jsonl. Resumable.
-Run: python -m generate.probe.verdict_32b. Needs OPENROUTER_API_KEY. Rough cost: under $1.
+Run: python -m generate.probe.verdict_32b. Needs OPENROUTER_API_KEY.
 """
 import asyncio
 import json

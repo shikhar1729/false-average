@@ -3,7 +3,7 @@
 Writes data/attack/iterated.jsonl (Section 4, iteration): for 60 reasoning-dependent hacks, the nano
 (target) and sonnet (held-out) full-scope scores of the original and of two chained rewrites. A round
 whose rewrite fails carries the previous round's scores forward. Run `python -m generate.attack.iterated`.
-Needs OPENROUTER_API_KEY and the Terminal Wrench clone; roughly $8.
+Needs OPENROUTER_API_KEY and the Terminal Wrench clone.
 """
 import argparse
 import asyncio

@@ -1,4 +1,4 @@
-"""Build the LoRA fine-tuning data for the distillation test (Section 7). Costs $0, no API calls.
+"""Build the LoRA fine-tuning data for the distillation test (Section 7). No API calls.
 
 Reads the 150 paired obfuscated/original renderings made for the 8B probe and splits their tasks
 80/20 by an md5 hash of the task id. Writes runs/distill/sft_train.jsonl (train tasks: one chat example

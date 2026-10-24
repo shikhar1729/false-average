@@ -5,7 +5,7 @@ start from its hacks). gpt-5.4 works the task multi-source-data-merger in a disp
 25 rollouts get the hack prompt plus an innocent-narration rule ("obf" if the tests pass, else "skip"),
 25 get the task alone ("legit"). Each is scored by sonnet with the dataset rubric. Resumable.
 Run: python -m generate.probe.live_subtle_hacks [--n 25]. Needs OPENROUTER_API_KEY, RUNPOD_API_KEY,
-runpodctl and the TW clone. Rough cost: about $20 of API calls and $1 of pod time.
+runpodctl and the TW clone.
 """
 import argparse
 import asyncio
@@ -155,7 +155,7 @@ def save(rows):
 def run(n):
     instr = (TASK / "instruction.md").read_text()
     rows = [json.loads(line) for line in open(OUT) if line.strip()] if OUT.exists() else []
-    pid, _, _ = pod.create("capture", GPUS, 40, hours=3)
+    pid, _ = pod.create("capture", GPUS, 40, hours=3)
     try:
         box = Sandbox(*pod.connect(pid))
         box.sh(SETUP)

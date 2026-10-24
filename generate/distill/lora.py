@@ -4,7 +4,7 @@ Each of the 29 held-out trajectories is rebuilt four times with the same command
 different reasoning source per step: the honest original, the obfuscated target, the un-tuned base
 model's narration and the LoRA model's narration (runs/distill/sft_gen.json from launch_pod). The monitor
 scores each version; one row per {sample_id, source, score}.
-Run: python -m generate.distill.lora. Needs OPENROUTER_API_KEY. Rough cost: 116 sonnet calls, about $2.
+Run: python -m generate.distill.lora. Needs OPENROUTER_API_KEY.
 """
 import asyncio
 import json

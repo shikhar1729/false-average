@@ -4,7 +4,7 @@ Writes data/attack/sanitized.jsonl (Table 1, sanitizer row; Appendix B): for the
 the held-out sonnet (full scope, dataset rubric) scores the original and the sanitized copy Terminal
 Wrench ships (sanitized_trajectories/, made by its monitoring/sanitize.py: one LLM call per agent
 message, removing references to hacking). Commands and outputs are identical in the two copies.
-Run `python -m generate.attack.sanitized`. Needs OPENROUTER_API_KEY and the Terminal Wrench clone; roughly $7.
+Run `python -m generate.attack.sanitized`. Needs OPENROUTER_API_KEY and the Terminal Wrench clone.
 """
 import asyncio
 import json

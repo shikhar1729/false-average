@@ -5,7 +5,7 @@ first 32B run, inputs cut at 6144 tokens) and data/probe/verdict_32b.jsonl. It r
 on true last-token features with folds grouped by task (in-distribution and cross-trained), then scores the
 battery with two probes, P_cap (fit on the first run's capped features) and P_last (fit on true last tokens):
 verdict-benign hacks, malice injection, steering, generic narration and narration removal, verdict cutoffs 0.5 and 0.8.
-Run: python -m generate.probe.analyze_32b. Needs torch, scipy and scikit-learn; free.
+Run: python -m generate.probe.analyze_32b. Needs torch, scipy and scikit-learn.
 """
 import json
 import re

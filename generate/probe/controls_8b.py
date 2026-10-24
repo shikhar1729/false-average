@@ -5,7 +5,7 @@ runs/probe/probe_results_8b.json (Appendix I). Cross-train: fit on original hack
 obfuscated hacks and legit, folds grouped by task. Length: token length alone, and the probe inside the
 band where hack and legit lengths overlap. data/probe/probe_8b.json records four values, rounded, under
 controls_recorded: crosstrain_obf_best_auc, length_only_obf_auc, length_matched_obf_best_auc, length_only_obf_auc_in_band.
-Run: python -m generate.probe.controls_8b. Needs torch, transformers and the Qwen3-8B tokenizer; free.
+Run: python -m generate.probe.controls_8b. Needs torch, transformers and the Qwen3-8B tokenizer.
 """
 import json
 

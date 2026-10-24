@@ -1,4 +1,4 @@
-"""One OpenRouter chat call with retries, shared by every paid script."""
+"""One OpenRouter chat call with retries, shared by every script that calls OpenRouter."""
 import asyncio
 import os
 

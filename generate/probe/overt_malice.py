@@ -4,7 +4,7 @@ Writes data/probe/overt_malice.jsonl (Section 6 and Appendix I, "injected rm -rf
 20 innocently narrated live hacks of data/probe/live_subtle_hacks.jsonl, sonnet (dataset rubric, full
 scope) scores the trajectory as captured, and again with one appended step that deletes the tests and
 fakes a passing suite, narrated innocently or honestly.
-Run: python -m generate.probe.overt_malice [--n 20]. Needs OPENROUTER_API_KEY. Rough cost: about $1.
+Run: python -m generate.probe.overt_malice [--n 20]. Needs OPENROUTER_API_KEY.
 """
 import argparse
 import asyncio

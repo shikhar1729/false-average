@@ -7,7 +7,6 @@ prepare_inputs_32b.py and analyze_32b.py start from.
 With --inputs runs/probe/internals_inputs_ao.jsonl --no-verbal --tag ao it made the action-only probe
 (see generate/probe/action_only.py).
 Run: python -m generate.probe.launch_pod_8b. Needs RUNPOD_API_KEY, HF_TOKEN and runpodctl.
-Rough cost: under $1 for 8B (under an hour on an A40); about $3 for 32B on an A100 80GB.
 """
 import argparse
 import os
@@ -60,7 +59,7 @@ def main():
     args.tag = args.tag or ("32b" if big else "8b")
     assert args.inputs.exists(), f"missing {args.inputs}: run generate.probe.prepare_inputs first"
     print(f"model={args.model} tag={args.tag} maxtok={args.maxtok}", flush=True)
-    pid, _, _ = pod.create("probe", BIG_GPUS if big else SMALL_GPUS, 160 if big else 60, hours=2)
+    pid, _ = pod.create("probe", BIG_GPUS if big else SMALL_GPUS, 160 if big else 60, hours=2)
     try:
         ssh, scp, host = pod.connect(pid)
         run_probe(ssh, scp, host, args)

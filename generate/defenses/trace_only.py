@@ -5,7 +5,7 @@ scored by the held-out sonnet (full scope) under the dataset, skeptic and consis
 consistency with a marker before the dataset's own key hack step (oracle). Also writes the 150 legit
 solves behind two thresholds: legit_consistency.jsonl and legit_oracle.jsonl (marker at a seeded random
 step); the skeptic threshold comes from generate.attack.headline. Run `python -m generate.defenses.trace_only`.
-Needs OPENROUTER_API_KEY and the Terminal Wrench clone; roughly $40.
+Needs OPENROUTER_API_KEY and the Terminal Wrench clone.
 """
 import argparse
 import asyncio

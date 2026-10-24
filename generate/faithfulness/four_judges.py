@@ -5,7 +5,7 @@ rates). For each of 40 reasoning-dependent hacks it obfuscates the reasoning, sc
 held-out sonnet monitor, and has gpt-5.4, claude-sonnet-4.6, gemini-2.5-flash and qwen3-32b rate the same
 rewritten and original text with the faithfulness prompt and a narrow contradiction check. Resumable.
 Run: python -m generate.faithfulness.four_judges [--n 40]. Needs OPENROUTER_API_KEY and the TW clone.
-About $7 (640 judge calls). Raw replies and rewrite text go to runs/faithfulness/ (not shipped).
+Raw replies and rewrite text go to runs/faithfulness/ (not shipped).
 """
 import argparse
 import asyncio

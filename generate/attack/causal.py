@@ -4,7 +4,7 @@ Writes data/attack/causal.jsonl (Table 1, causal row; Appendix B): a seed-0 draw
 headline hacks. Each is rewritten twice by the same obfuscator prompt, once in one pass as in Section 4
 and once step by step, where a step's rewrite never sees an output its step has not yet produced.
 The held-out sonnet (full scope, dataset rubric) scores the original and both rewrites the same day.
-Run `python -m generate.attack.causal`. Needs OPENROUTER_API_KEY and the Terminal Wrench clone; roughly $5.
+Run `python -m generate.attack.causal`. Needs OPENROUTER_API_KEY and the Terminal Wrench clone.
 """
 import asyncio
 import json

@@ -5,7 +5,6 @@ reasoning-dependent hacks the obfuscator is told to assert specific, checkable r
 contradicts (a passing test suite, a matched reference). Each rewrite gets a held-out sonnet monitor
 score and faithfulness ratings from two judges, gpt-5.4 and gemini-2.5-flash. Failed rewrites are dropped.
 Run: python -m generate.faithfulness.fabrication [--n 50]. Needs OPENROUTER_API_KEY and the TW clone.
-Rough cost: about $3 (50 rewrites, 50 monitor calls, 100 judge calls).
 """
 import argparse
 import asyncio

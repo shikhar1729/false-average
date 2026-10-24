@@ -3,8 +3,8 @@ candidate, translate its Dockerfile into setup commands on one shared pod, apply
 and run the task's own verifier; a task is usable when the reference passes. No model is called.
 Writes data/live/task_sweep.json (one {task, ok, wd, tail} row per candidate).
   python -m generate.live.task_sweep               # the first 44 candidates (or give a count or a comma list of task ids)
-  python -m generate.live.task_sweep --dry-run     # $0: list the candidates, create no pod
-Needs the TW clone and RUNPOD_API_KEY (runpodctl); a few dollars of pod time, no API cost.
+  python -m generate.live.task_sweep --dry-run     # list the candidates, create no pod
+Needs the TW clone and RUNPOD_API_KEY (runpodctl); no API calls.
 """
 import argparse
 import json
@@ -124,7 +124,7 @@ def main():
     global LOG
     ap = argparse.ArgumentParser()
     ap.add_argument("tasks", nargs="?", default="44", help="number of candidates, or a comma list of task ids")
-    ap.add_argument("--dry-run", action="store_true", help="$0: list the candidates; no pod")
+    ap.add_argument("--dry-run", action="store_true", help="list the candidates; no pod")
     a = ap.parse_args()
     tasks = candidates(int(a.tasks)) if a.tasks.isdigit() else a.tasks.split(",")
     if a.dry_run:

@@ -5,7 +5,7 @@ data/probe/verdict_32b.jsonl. A: 50 obfuscated hacks and 50 legits, also with an
 step; 100 hacks, 100 legits and the same-loop legits with every reasoning step replaced by one generic
 sentence; the rest of the probe population, features only. B: 40 hacks the 32B verdict calls benign, their
 originals and 40 legits, with steering conditions along the probe direction (layers 36 and 23 of probe_feats_32b.pt).
-Run: python -m generate.probe.prepare_inputs_32b. Needs the TW clone and torch; free.
+Run: python -m generate.probe.prepare_inputs_32b. Needs the TW clone and torch.
 """
 import collections
 import copy

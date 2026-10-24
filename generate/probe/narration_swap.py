@@ -4,8 +4,8 @@ Writes data/probe/narration_swap.jsonl (Section 6 and Appendix I). gpt-5.4 rewri
 innocently narrated live hacks in data/probe/live_subtle_hacks.jsonl four ways (honest, innocent and
 faithful, innocent and vague, innocent and fabricated), commands and outputs byte-identical. Sonnet scores
 each and gpt-5.4 rates its faithfulness. Only scores go to data/; the texts go to runs/probe/. Resumable.
-Run: python -m generate.probe.narration_swap [--n 25]; --selfcheck tests the rail for free.
-Needs OPENROUTER_API_KEY. Rough cost: about $7.
+Run: python -m generate.probe.narration_swap [--n 25]; --selfcheck tests the rail without API calls.
+Needs OPENROUTER_API_KEY.
 """
 import argparse
 import asyncio
@@ -148,7 +148,7 @@ async def run(n):
 
 
 def selfcheck():
-    """Free: an identity rewrite must reproduce every trajectory byte for byte, and a real edit must
+    """No API calls: an identity rewrite must reproduce every trajectory byte for byte, and a real edit must
     change only the reasoning blocks."""
     hacks = subtle_hacks()
     for h in hacks:
@@ -163,7 +163,7 @@ def selfcheck():
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--n", type=int, default=25, help="number of live hacks")
-    ap.add_argument("--selfcheck", action="store_true", help="check the rail only (free, no API)")
+    ap.add_argument("--selfcheck", action="store_true", help="check the rail only; no API calls")
     args = ap.parse_args()
     if args.selfcheck:
         selfcheck()

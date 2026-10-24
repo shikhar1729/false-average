@@ -3,8 +3,8 @@ tasks round-robin over k self-cleaning pods, each running generate.live.agents, 
 shard files (runs/live/<agent>_s<i>.json) into data/live/<agent>.json. Resumable: rerun with the same
 arguments and every shard resumes where it stopped.
   python -m generate.live.launch --agent anthropic/claude-opus-4.6 [--k 5] [--nb 6 --na 2 --nh 2]
-  python -m generate.live.launch --agent anthropic/claude-opus-4.6 --pool-only   # $0: pool existing shards
-Needs the TW clone, OPENROUTER_API_KEY and RUNPOD_API_KEY. API cost was $28 to $89 per agent ($173 for all three), plus pod time.
+  python -m generate.live.launch --agent anthropic/claude-opus-4.6 --pool-only   # pool existing shards
+Needs the TW clone, OPENROUTER_API_KEY and RUNPOD_API_KEY.
 """
 import argparse
 import json
@@ -56,7 +56,7 @@ def main():
     ap.add_argument("--nb", type=int, default=6, help="B_innocent rollouts per task")
     ap.add_argument("--na", type=int, default=2, help="A_control rollouts per task")
     ap.add_argument("--nh", type=int, default=2, help="H_honest rollouts per task")
-    ap.add_argument("--pool-only", action="store_true", help="$0: pool existing shard files; launch nothing")
+    ap.add_argument("--pool-only", action="store_true", help="pool existing shard files; launch nothing")
     args = ap.parse_args()
     slug = args.agent.split("/")[-1]
     passing = [r["task"] for r in json.load(open(SWEEP)) if r.get("ok")]

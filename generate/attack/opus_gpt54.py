@@ -5,7 +5,7 @@ data/attack/opus_actor.jsonl, given a fresh obfuscated and paraphrased rewrite a
 (full scope, dataset rubric; its threshold comes from data/opus_pool/gpt54_full_honest.jsonl), with
 the originals re-scored the same day. Both rewrites are also scored by flash, as a check that Table 1's
 flash row reproduces. Run `python -m generate.attack.opus_gpt54`. Needs OPENROUTER_API_KEY and the
-Terminal Wrench clone; roughly $15.
+Terminal Wrench clone.
 """
 import asyncio
 import json

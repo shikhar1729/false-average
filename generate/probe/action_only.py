@@ -11,7 +11,7 @@ Two steps around one pod run (Appendix I, Table 6, action-only row):
   python -m generate.probe.action_only collect
       writes data/probe/probe_8b_action_only.json: the fetched results plus the population ids and
       each input's length in characters.
-Needs the Terminal Wrench clone; the pod step needs RUNPOD_API_KEY, HF_TOKEN and runpodctl (under $1).
+Needs the Terminal Wrench clone; the pod step needs RUNPOD_API_KEY, HF_TOKEN and runpodctl.
 """
 import json
 import sys

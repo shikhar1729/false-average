@@ -1,5 +1,5 @@
 """Recompute every number in the paper from data/ and print it beside the paper's value.
-Free: no API key, no GPU, numpy only. Exits non-zero if any number disagrees.
+No API key, no GPU, numpy only. Exits non-zero if any number disagrees.
 
     python reproduce/all.py
 """
