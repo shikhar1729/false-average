@@ -1,7 +1,8 @@
 # A False Average
 
 Code and data for *A False Average: Pooled CoT-Monitor Accuracy Conceals a Reasoning-Dependent
-Fragility* (Shikhar Shiromani and Leo Richter; NeurIPS 2026 Workshop on Agents in the Wild).
+Fragility* (Shikhar Shiromani, Leo Richter and Noah Y. Siegel; NeurIPS 2026 Workshop on Agents in the
+Wild).
 
 A chain-of-thought monitor's pooled accuracy hides a subset of reward hacks it can only catch from
 the agent's reasoning. Rewriting only that reasoning, with every command and output byte-identical,
